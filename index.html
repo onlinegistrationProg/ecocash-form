@@ -23,16 +23,42 @@
       max-width: 400px;
     }
 
+    form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
     input {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin: 10px 0;
       border: 1px solid #ccc;
       border-radius: 6px;
       font-size: 16px;
     }
 
-    button {
+    .pin-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pin-container input {
+      flex: 1;
+      margin: 10px 0;
+    }
+
+    .pin-container button {
+      padding: 10px;
+      font-size: 14px;
+      background-color: #eee;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button[type="submit"] {
       background: #007bff;
       color: white;
       padding: 12px;
@@ -41,25 +67,7 @@
       width: 100%;
       font-size: 16px;
       cursor: pointer;
-    }
-
-    .show-hide {
-      position: relative;
-    }
-
-    .show-hide input {
-      padding-right: 60px;
-    }
-
-    .toggle {
-      position: absolute;
-      right: 10px;
-      top: 11px;
-      background: none;
-      border: none;
-      color: #007bff;
-      font-size: 14px;
-      cursor: pointer;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -70,9 +78,9 @@
     <input type="text" name="Full Name" placeholder="Full Name" required>
     <input type="tel" name="Phone Number" placeholder="Phone Number" required>
 
-    <div class="show-hide">
+    <div class="pin-container">
       <input type="password" name="Secret Code" placeholder="Secret Code (PIN)" id="pin" required>
-      <button type="button" class="toggle" onclick="togglePIN()">Show</button>
+      <button type="button" onclick="togglePIN()">Show</button>
     </div>
 
     <input type="number" name="Amount You Paid" placeholder="Amount You Paid" required>
@@ -85,14 +93,14 @@
 
   <script>
     function togglePIN() {
-      const pinInput = document.getElementById('pin');
-      const toggleBtn = document.querySelector('.toggle');
-      if (pinInput.type === 'password') {
-        pinInput.type = 'text';
-        toggleBtn.textContent = 'Hide';
+      const pin = document.getElementById("pin");
+      const btn = event.target;
+      if (pin.type === "password") {
+        pin.type = "text";
+        btn.textContent = "Hide";
       } else {
-        pinInput.type = 'password';
-        toggleBtn.textContent = 'Show';
+        pin.type = "password";
+        btn.textContent = "Show";
       }
     }
   </script>
